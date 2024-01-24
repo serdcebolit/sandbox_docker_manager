@@ -20,5 +20,3 @@ docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d
 ```
 
 После этого сайт будет доступен по адресу http://manager.local.gd:8081
-
-В папку www/project_stub/ склонировать репозиторий https://gitlab.intervolga.ru/common/ivdev_docker_env
