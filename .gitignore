@@ -1,0 +1,9 @@
+/www/vendor
+/ext_www
+/*.env
+/www/log
+/www/project_stub
+/www/cache
+/www/test.php
+.idea/
+.vscode/

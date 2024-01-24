@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./httpd
+    image: ghcr.io/serdcebolit/sandbox_docker_manager_httpd:latest
+  node:
+    build: ./node_exec
+    image: ghcr.io/serdcebolit/sandbox_docker_manager_node:latest

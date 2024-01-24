@@ -1,0 +1,123 @@
+version: "3.9"
+
+services:
+  nginx:
+    container_name: sandbox_manager_nginx
+    image: ghcr.io/serdcebolit/nginx:latest
+    restart: always
+    networks:
+      - main_proxy_ivdev_network
+      - local_network
+    depends_on:
+      - backend
+    volumes:
+      - ./www:/home/bitrix/www
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nginx-sandboxmanager.rule=Host(`${SITE_HOST}`)"
+      - "traefik.http.routers.nginx-sandboxmanager.middlewares=https-only"
+      - "traefik.http.routers.nginx-sandboxmanager.entrypoints=websecure"
+      - "traefik.http.routers.nginx-sandboxmanager.tls=true"
+      - "traefik.http.routers.nginx-sandboxmanager.tls.certresolver=mainresolver"
+
+      - "traefik.http.routers.nginx-sandboxmanager2.rule=Host(`${SITE_HOST}`)"
+      - "traefik.http.routers.nginx-sandboxmanager2.priority=2"
+      - "traefik.http.routers.nginx-sandboxmanager2.middlewares=secured"
+      - "traefik.http.routers.nginx-sandboxmanager2.entrypoints=websecure"
+      - "traefik.http.routers.nginx-sandboxmanager2.tls=true"
+      - "traefik.http.routers.nginx-sandboxmanager2.tls.certresolver=mainresolver"
+
+      - "traefik.http.routers.nginx-sandboxmanager3.rule=hostregexp(`{host:.+}`)"
+      - "traefik.http.routers.nginx-sandboxmanager3.priority=1"
+      - "traefik.http.routers.nginx-sandboxmanager3.entrypoints=websecure"
+      - "traefik.http.routers.nginx-sandboxmanager3.middlewares=error-pages-middleware"
+      - "traefik.http.routers.nginx-sandboxmanager3.tls=true"
+      - "traefik.http.routers.nginx-sandboxmanager3.tls.certresolver=mainresolver"
+      - "traefik.http.middlewares.error-pages-middleware.errors.status=404"
+      - "traefik.http.middlewares.error-pages-middleware.errors.service=nginx-sandbox-manager"
+      - "traefik.http.middlewares.error-pages-middleware.errors.query=/404/"
+
+  backend:
+    container_name: sandbox_manager_backend
+    image: ghcr.io/serdcebolit/sandbox_docker_manager_httpd:latest
+    restart: always
+    networks:
+      - local_network
+    depends_on:
+      - mysql
+      - socket_proxy
+    volumes:
+      - ./www:/home/bitrix/www
+      - ${SSHPIPER_VOLUME}:/home/bitrix/sshpiper
+      - "${SANDBOXES_ROOT_PATH}:/home/bitrix/ext_www"
+      - ./httpd/crontab.cfg:/root/crontab.cfg
+      - backend_cron:/var/spool/cron
+      - /usr/bin/docker:/usr/bin/docker
+    environment:
+      - SITE_HOST=${SITE_HOST}
+      - SSH_PASSWORD=${SSH_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_LOGIN=${DB_LOGIN}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - CONTAINERS_ENV=${CONTAINERS_ENV}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_LOGIN=${SMTP_LOGIN}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_FROM_NAME=${SMTP_FROM_NAME}
+      - MAIN_DOMAIN=${MAIN_DOMAIN}
+      - TRAEFIK_BASEURL=${TRAEFIK_BASEURL}
+      - TRAEFIK_LOGIN=${TRAEFIK_LOGIN}
+      - TREFIK_PASSWORD=${TREFIK_PASSWORD}
+      - SANDBOXES_ROOT_PATH=${SANDBOXES_ROOT_PATH}
+      - DOCKER_HOST=tcp://socket_proxy:2375
+
+  socket_proxy:
+    container_name: sandbox_manager_socket_proxy
+    image: tecnativa/docker-socket-proxy:0.1.1
+    privileged: true
+    restart: always
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - local_network
+    environment:
+      - INFO=1
+      - CONTAINERS=1
+      - VOLUMES=1
+      - IMAGES=1
+      - NETWORKS=1
+      - POST=1
+      - BUILD=1
+      - SYSTEM=1
+      - INSPECT=1
+      - PLUGINS=1
+
+  mysql:
+    container_name: sandbox_manager_mysql
+    image: ghcr.io/serdcebolit/mysql:latest
+    restart: always
+    networks:
+      - local_network
+      - main_proxy_db_network
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_USER=${DB_LOGIN}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_ROOT_PASSWORD=SuperSecretRootPASSWORD
+
+volumes:
+  backend_cron:
+  mysql_data:
+  main_proxy_sshpiper_config:
+    external: true
+
+networks:
+  local_network:
+  main_proxy_ivdev_network:
+    external: true
+  main_proxy_db_network:
+    external: true

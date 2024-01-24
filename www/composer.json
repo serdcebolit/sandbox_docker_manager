@@ -1,0 +1,28 @@
+{
+    "name": "intervolga/docker_sandbox_manager",
+    "description": "Service for creating and managing sandboxes",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Intervolga\\DockerSandboxManager\\": "src/"
+        },
+        "files": [
+            "bootstrap.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Egor Borisovsky",
+            "email": "egor@intervolga.ru"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "doctrine/dbal": "^3.2",
+        "symfony/process": "^6.3",
+        "monolog/monolog": "^2.3",
+        "symfony/cache": "^6.0",
+        "phpmailer/phpmailer": "^6.5",
+        "ext-mbstring": "*"
+    }
+}
