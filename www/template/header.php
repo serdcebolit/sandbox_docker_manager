@@ -18,8 +18,7 @@
     <div class="container main-block">
         <div class="row logo logo-sites">
             <div class="col-sm-12">
-                <img src="/template/img/logo.svg">
-                <div class="title text-center">отдел веб-проектов</div>
+                <div class="title text-center">Менеджер песочниц</div>
             </div>
         </div>
         <?php if (!isset($GLOBALS['IS_404'])):?>

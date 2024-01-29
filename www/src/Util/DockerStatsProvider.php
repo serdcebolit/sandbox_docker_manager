@@ -26,7 +26,7 @@ class DockerStatsProvider {
 			$this->commandsExecutor->execute(['docker', '-v']);
 		} catch (ProcessFailedException $e) {
 			if ($e->getProcess()->getExitCodeText() == 'Command not found') {
-				throw new DockerNotAvailableException(message: 'Docker недоступен в системеы', previous: $e);
+				throw new DockerNotAvailableException(message: 'Docker недоступен в системе', previous: $e);
 			} else {
 				throw $e;
 			}

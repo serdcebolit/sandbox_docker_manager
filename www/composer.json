@@ -1,5 +1,5 @@
 {
-    "name": "intervolga/docker_sandbox_manager",
+    "name": "serdcebolit/sandbox_docker_manager",
     "description": "Service for creating and managing sandboxes",
     "type": "project",
     "autoload": {
@@ -12,8 +12,8 @@
     },
     "authors": [
         {
-            "name": "Egor Borisovsky",
-            "email": "egor@intervolga.ru"
+            "name": "Denis Guselnikov",
+            "email": "d97510795@gmail.com"
         }
     ],
     "require": {

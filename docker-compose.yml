@@ -6,7 +6,7 @@ services:
     image: ghcr.io/serdcebolit/nginx:latest
     restart: always
     networks:
-      - main_proxy_ivdev_network
+      - main_proxy_sandbox_network
       - local_network
     depends_on:
       - backend
@@ -38,11 +38,14 @@ services:
       - "traefik.http.middlewares.error-pages-middleware.errors.query=/404/"
 
   backend:
-    container_name: sandbox_manager_backend
+    container_name: sandbox_manager_httpd
+    build:
+      context: ./httpd
     image: ghcr.io/serdcebolit/sandbox_docker_manager_httpd:latest
     restart: always
     networks:
       - local_network
+      - main_proxy_sshproxy
     depends_on:
       - mysql
       - socket_proxy
@@ -52,7 +55,7 @@ services:
       - "${SANDBOXES_ROOT_PATH}:/home/bitrix/ext_www"
       - ./httpd/crontab.cfg:/root/crontab.cfg
       - backend_cron:/var/spool/cron
-      - /usr/bin/docker:/usr/bin/docker
+#      - /usr/bin/docker:/usr/bin/docker
     environment:
       - SITE_HOST=${SITE_HOST}
       - SSH_PASSWORD=${SSH_PASSWORD}
@@ -109,6 +112,25 @@ services:
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_ROOT_PASSWORD=SuperSecretRootPASSWORD
 
+#  mail:
+#    container_name: sandbox_manager_mail
+#    image: mailhog/mailhog:v1.0.1
+#    restart: on-failure
+#    depends_on:
+#      deploy_manager:
+#        condition: service_healthy
+#    networks:
+#      - main_proxy_sandbox_network
+#      - default
+#    labels:
+#      - "traefik.enable=true"
+#      - "traefik.http.routers.mail-sandboxmanager.rule=Host(`mail.sandbox.${SITE_HOST}`)"
+#      - "traefik.http.routers.mail-sandboxmanager.entrypoints=websecure"
+#      - "traefik.http.routers.mail-sandboxmanager.middlewares=auth"
+#      - "traefik.http.routers.mail-sandboxmanager.tls=true"
+#      - "traefik.http.routers.mail-sandboxmanager.tls.certresolver=mainresolver"
+#      - "traefik.http.services.mail-sandboxmanager.loadbalancer.server.port=8025"
+
 volumes:
   backend_cron:
   mysql_data:
@@ -117,7 +139,9 @@ volumes:
 
 networks:
   local_network:
-  main_proxy_ivdev_network:
+  main_proxy_sshproxy:
+    external: true
+  main_proxy_sandbox_network:
     external: true
   main_proxy_db_network:
     external: true

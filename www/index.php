@@ -28,10 +28,6 @@ function processRequest(
 		}
 
 		$email = mb_strtolower(trim($email));
-        [, $emailDomain] = explode('@', $email);
-        if ($emailDomain != 'intervolga.ru') {
-            throw new Exception('Почта должна быть в домене intervolga.ru');
-        }
 
 		!mb_strlen($domain)
             && throw new Exception('Неправильно заполнено поле с названием сайта');
@@ -156,13 +152,13 @@ $sandboxes = Application::getSandboxRepository()->getAllWithLastCommandStatus(ex
 		<div class="form-group row">
 			<label class="col-4">Ваш email</label>
 			<div class="col-8">
-				<input type="text" class="form-control" placeholder="напр. hero@intervolga.ru" name="email" value="<?=htmlspecialchars($email)?>" autocomplete="off" required>
+				<input type="text" class="form-control" placeholder="напр. hero@example.ru" name="email" value="<?=htmlspecialchars($email)?>" autocomplete="off" required>
 			</div>
 		</div>
 		<div class="form-group row">
 			<label class="col-4">Название сайта</label>
 			<div class="col-8 input-group">
-				<input type="text" class="form-control" placeholder="напр. intervolga-15" name="domain" value="<?=htmlspecialchars($domain)?>" autocomplete="off" required>
+				<input type="text" class="form-control" placeholder="напр. example-15" name="domain" value="<?=htmlspecialchars($domain)?>" autocomplete="off" required>
 				<div class="input-group-append">
 					<div class="input-group-text">.<?=$config['main_domain']?></div>
 				</div>
@@ -202,7 +198,7 @@ $sandboxes = Application::getSandboxRepository()->getAllWithLastCommandStatus(ex
 			<div class="form-group row">
 				<label class="col-4">Ссылка для клонирования репозитория</label>
 				<div class="col-8">
-					<input type="text" class="form-control" placeholder="git@gitlab.intervolga.ru:project/site.git" name="repo_link" value="<?=htmlspecialchars($repoLink)?>" autocomplete="off">
+					<input type="text" class="form-control" placeholder="git@github.com:project/site.git" name="repo_link" value="<?=htmlspecialchars($repoLink)?>" autocomplete="off">
 					<small class="form-text text-muted">Поддерживаются только ссылки для клонирования по ssh!</small>
 				</div>
 			</div>
@@ -235,7 +231,7 @@ $sandboxes = Application::getSandboxRepository()->getAllWithLastCommandStatus(ex
 			<input type="submit" class="btn btn-red" name="submit" value="Создать песочницу">
 		</div>
 		<div class="alert alert-info">
-			Документация по созданию и работе с песочницами доступна по ссылке <a href="https://gitlab.intervolga.ru/common/ivdev_docker_env/-/blob/master/readme.md">https://gitlab.intervolga.ru/common/ivdev_docker_env/-/blob/master/readme.md</a>
+			Документация по созданию и работе с песочницами доступна по ссылке <a href="https://github.com/serdcebolit/sandbox_docker_env/blob/master/readme.md" target="_blank">https://github.com/serdcebolit/sandbox_docker_env/blob/master/readme.md</a>
 			<br>
 			Все доступы к песочнице приходят на почту, указанную при создании песочницы.
 		</div>
