@@ -8,6 +8,7 @@ on:
       - 'node_exec/**'
       - 'docker-compose.build.yml'
       - 'docker-compose.yml'
+  workflow_dispatch:
 
 jobs:
   docker-build:
