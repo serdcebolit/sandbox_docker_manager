@@ -39,8 +39,6 @@ services:
 
   backend:
     container_name: sandbox_manager_httpd
-    build:
-      context: ./httpd
     image: ghcr.io/serdcebolit/sandbox_docker_manager_httpd:latest
     restart: always
     networks:
@@ -55,7 +53,6 @@ services:
       - "${SANDBOXES_ROOT_PATH}:/home/bitrix/ext_www"
       - ./httpd/crontab.cfg:/root/crontab.cfg
       - backend_cron:/var/spool/cron
-#      - /usr/bin/docker:/usr/bin/docker
     environment:
       - SITE_HOST=${SITE_HOST}
       - SSH_PASSWORD=${SSH_PASSWORD}
