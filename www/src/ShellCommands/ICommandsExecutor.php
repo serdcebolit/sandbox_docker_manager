@@ -1,6 +1,6 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\ShellCommands;
+namespace Local\DockerSandboxManager\ShellCommands;
 
 interface ICommandsExecutor
 {

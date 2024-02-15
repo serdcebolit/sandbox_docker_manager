@@ -1,6 +1,6 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\DB;
+namespace Local\DockerSandboxManager\DB;
 
 use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Query\QueryBuilder;

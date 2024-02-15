@@ -1,6 +1,6 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Exception;
+namespace Local\DockerSandboxManager\Exception;
 
 class DockerNotAvailableException extends \Exception
 {

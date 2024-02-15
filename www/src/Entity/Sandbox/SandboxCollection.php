@@ -1,8 +1,8 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Entity\Sandbox;
+namespace Local\DockerSandboxManager\Entity\Sandbox;
 
-use Intervolga\DockerSandboxManager\Entity\AbstractCollection;
+use Local\DockerSandboxManager\Entity\AbstractCollection;
 
 /**
  * @method ISandbox next()

@@ -1,6 +1,6 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Entity;
+namespace Local\DockerSandboxManager\Entity;
 
 abstract class AbstractCollection implements \Iterator, \Countable {
 

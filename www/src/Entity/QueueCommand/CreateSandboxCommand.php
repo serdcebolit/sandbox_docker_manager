@@ -1,14 +1,14 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Entity\QueueCommand;
+namespace Local\DockerSandboxManager\Entity\QueueCommand;
 
 use DateTime;
 use Exception;
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Util\Config;
-use Intervolga\DockerSandboxManager\Util\DockerComposeProject;
-use Intervolga\DockerSandboxManager\Util\Mail;
-use Intervolga\DockerSandboxManager\Util\Password;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Util\Config;
+use Local\DockerSandboxManager\Util\DockerComposeProject;
+use Local\DockerSandboxManager\Util\Mail;
+use Local\DockerSandboxManager\Util\Password;
 use Psr\Log\LoggerInterface;
 use Throwable;
 

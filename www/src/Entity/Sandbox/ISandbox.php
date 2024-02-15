@@ -1,6 +1,6 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Entity\Sandbox;
+namespace Local\DockerSandboxManager\Entity\Sandbox;
 
 use DateTime;
 

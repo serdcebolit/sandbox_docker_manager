@@ -1,9 +1,9 @@
 <?php
 
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\DB\Connection;
-use Intervolga\DockerSandboxManager\DB\Schema;
-use Intervolga\DockerSandboxManager\Util\Config;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\DB\Connection;
+use Local\DockerSandboxManager\DB\Schema;
+use Local\DockerSandboxManager\Util\Config;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
 use Monolog\Registry;

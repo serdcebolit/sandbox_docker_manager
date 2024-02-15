@@ -1,12 +1,12 @@
 <?php
 
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\DockerSandbox;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\ISandbox;
-use Intervolga\DockerSandboxManager\Repository\SandboxRepository;
-use Intervolga\DockerSandboxManager\Util\Ajax;
-use Intervolga\DockerSandboxManager\Util\Config;
-use Intervolga\DockerSandboxManager\Util\DockerComposeProject;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Entity\Sandbox\DockerSandbox;
+use Local\DockerSandboxManager\Entity\Sandbox\ISandbox;
+use Local\DockerSandboxManager\Repository\SandboxRepository;
+use Local\DockerSandboxManager\Util\Ajax;
+use Local\DockerSandboxManager\Util\Config;
+use Local\DockerSandboxManager\Util\DockerComposeProject;
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 

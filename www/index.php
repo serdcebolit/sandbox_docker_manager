@@ -1,9 +1,9 @@
 <?php
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Entity\QueueCommand\CommandFactory;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\DockerSandbox;
-use Intervolga\DockerSandboxManager\Util\Config;
-use Intervolga\DockerSandboxManager\Util\DockerComposeProject;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Entity\QueueCommand\CommandFactory;
+use Local\DockerSandboxManager\Entity\Sandbox\DockerSandbox;
+use Local\DockerSandboxManager\Util\Config;
+use Local\DockerSandboxManager\Util\DockerComposeProject;
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 $title = 'Создание песочницы';

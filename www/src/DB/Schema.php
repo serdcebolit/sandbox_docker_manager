@@ -1,6 +1,6 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\DB;
+namespace Local\DockerSandboxManager\DB;
 
 class Schema {
 	public static function migrate(): void {

@@ -22,8 +22,8 @@ $body = <<<E
 <pre>$lastLogs</pre><br><br>
 <strong>Перехват писем:</strong><br>
 Страница перехвата: <a href="https://$mailDomain">$mailDomain</a><br>
-Логин: intervolga<br>
-Пароль: intervolga34
+Логин: sandbox<br>
+Пароль: sandbox
 <br><br>
 <strong>Доступы для подключения по SSH:</strong><br>
 Хост: $sshHost<br>
@@ -37,7 +37,7 @@ $body = <<<E
 Логин: bitrix<br>
 Пароль: password
 <br><br>
-<b>Перед началом использования песочницы обязательно <a href="https://gitlab.intervolga.ru/common/ivdev_docker_env/-/blob/master/readme.md">ознакомьтесь с документацией</a></b>
+<b>Перед началом использования песочницы обязательно <a href="https://github.com/serdcebolit/sandbox_docker_env/blob/master/readme.md">ознакомьтесь с документацией</a></b>
 <hr>
 С любовью ваш $sshHost
 <br>

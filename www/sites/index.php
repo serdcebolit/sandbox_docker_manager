@@ -1,8 +1,8 @@
 <?php
 
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\DockerSandbox;
-use Intervolga\DockerSandboxManager\Util\FileSizeHelper;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Entity\Sandbox\DockerSandbox;
+use Local\DockerSandboxManager\Util\FileSizeHelper;
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 $title = 'Список песочниц';

@@ -1,12 +1,12 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Settings\CustomSettings;
+namespace Local\DockerSandboxManager\Settings\CustomSettings;
 
 use Exception;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\ISandbox;
-use Intervolga\DockerSandboxManager\Repository\SandboxRepository;
-use Intervolga\DockerSandboxManager\Settings\Settings;
-use Intervolga\DockerSandboxManager\Util\DockerComposeProject;
+use Local\DockerSandboxManager\Entity\Sandbox\ISandbox;
+use Local\DockerSandboxManager\Repository\SandboxRepository;
+use Local\DockerSandboxManager\Settings\Settings;
+use Local\DockerSandboxManager\Util\DockerComposeProject;
 
 class SshKeysSettings extends Settings {
 	protected const SETTINGS_NAME = "Настройки ssh-ключей";

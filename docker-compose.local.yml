@@ -9,7 +9,7 @@ services:
       - '3307:3306'
 
 networks:
-  main_proxy_ivdev_network:
+  main_proxy_sandbox_network:
     driver: bridge
   main_proxy_db_network:
     driver: bridge

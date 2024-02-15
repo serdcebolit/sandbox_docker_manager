@@ -1,6 +1,6 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Util;
+namespace Local\DockerSandboxManager\Util;
 
 class Password {
 	public static function generate(int $length = 8): string {

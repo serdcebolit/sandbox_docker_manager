@@ -1,8 +1,8 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Sandbox;
+namespace Local\DockerSandboxManager\Sandbox;
 
-use Intervolga\DockerSandboxManager\Entity\Sandbox\ISandbox;
+use Local\DockerSandboxManager\Entity\Sandbox\ISandbox;
 
 interface ISandboxServicesCollector {
 

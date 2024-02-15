@@ -1,11 +1,11 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Util;
+namespace Local\DockerSandboxManager\Util;
 
 use Exception;
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\DockerSandbox;
-use Intervolga\DockerSandboxManager\Exception\WrongRobotsFileException;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Entity\Sandbox\DockerSandbox;
+use Local\DockerSandboxManager\Exception\WrongRobotsFileException;
 use Throwable;
 
 class DockerComposeProject {

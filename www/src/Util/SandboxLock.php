@@ -1,9 +1,9 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Util;
+namespace Local\DockerSandboxManager\Util;
 
 use DateTime;
-use Intervolga\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Application;
 use Symfony\Component\Cache\Adapter\AbstractAdapter;
 use InvalidArgumentException;
 use Symfony\Component\Cache\CacheItem;

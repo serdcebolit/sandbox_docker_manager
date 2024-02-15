@@ -1,6 +1,6 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\DB;
+namespace Local\DockerSandboxManager\DB;
 
 interface IConnection {
 	public static function getInstance(?array $params = null): static;

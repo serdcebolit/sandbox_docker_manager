@@ -1,11 +1,11 @@
 <?php
 
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\DockerSandbox;
-use Intervolga\DockerSandboxManager\Exception\WrongRobotsFileException;
-use Intervolga\DockerSandboxManager\Util\Config;
-use Intervolga\DockerSandboxManager\Util\DockerComposeProject;
-use Intervolga\DockerSandboxManager\Util\Mail;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Entity\Sandbox\DockerSandbox;
+use Local\DockerSandboxManager\Exception\WrongRobotsFileException;
+use Local\DockerSandboxManager\Util\Config;
+use Local\DockerSandboxManager\Util\DockerComposeProject;
+use Local\DockerSandboxManager\Util\Mail;
 
 $_SERVER['DOCUMENT_ROOT'] = dirname(__FILE__, 2);
 

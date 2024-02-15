@@ -1,9 +1,9 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Entity\QueueCommand;
+namespace Local\DockerSandboxManager\Entity\QueueCommand;
 
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\ISandbox;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Entity\Sandbox\ISandbox;
 
 class CommandFactory {
 	public static function createFromArray(array $item): ?IQueueCommand {

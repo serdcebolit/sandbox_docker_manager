@@ -1,11 +1,11 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Settings;
+namespace Local\DockerSandboxManager\Settings;
 
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\ISandbox;
-use Intervolga\DockerSandboxManager\Repository\SandboxRepository;
-use Intervolga\DockerSandboxManager\Util\DockerComposeProject;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Entity\Sandbox\ISandbox;
+use Local\DockerSandboxManager\Repository\SandboxRepository;
+use Local\DockerSandboxManager\Util\DockerComposeProject;
 
 class SandboxSettingsManager {
 	protected static ?self $instance = null;

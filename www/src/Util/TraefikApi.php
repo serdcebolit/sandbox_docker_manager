@@ -1,6 +1,6 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Util;
+namespace Local\DockerSandboxManager\Util;
 
 class TraefikApi {
 	public function __construct(

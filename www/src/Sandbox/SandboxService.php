@@ -1,6 +1,6 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Sandbox;
+namespace Local\DockerSandboxManager\Sandbox;
 
 class SandboxService {
 	public function __construct(

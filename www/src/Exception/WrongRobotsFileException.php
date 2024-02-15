@@ -1,6 +1,6 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Exception;
+namespace Local\DockerSandboxManager\Exception;
 
 use Exception;
 

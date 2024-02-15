@@ -11,18 +11,18 @@ return [
 	'containers_env' => getenv('CONTAINERS_ENV') ?: 'prod',
 	'sandbox_active_days_period' => 7,
 	'ip_addresses_for_access_logs' => ['88.87.88.238'],
-	'main_domain' => getenv('MAIN_DOMAIN') ?: 'ivdev.ru',
+	'main_domain' => getenv('MAIN_DOMAIN') ?: 'serdcebolit.ru',
 	'logs_dir' => $_SERVER['DOCUMENT_ROOT'].'/log',
 	'mail' => [
 		'host' => getenv('SMTP_HOST'),
 		'login' => getenv('SMTP_LOGIN'),
 		'password' => getenv('SMTP_PASSWORD'),
 		'port' => getenv('SMTP_PORT') ?: 25,
-		'from_name' => getenv('SMTP_FROM_NAME') ?: 'ivdev',
-		'bcc_emails' => ['egor@intervolga.ru', 'alex@intervolga.ru']
+		'from_name' => getenv('SMTP_FROM_NAME') ?: 'serdcebolit',
+		'bcc_emails' => ['d97510795@gmail.com']
 	],
 	'traefik' => [
-		'baseUrl' => getenv('TRAEFIK_BASEURL') ?: 'https://traefik.ivsand.ru',
+		'baseUrl' => getenv('TRAEFIK_BASEURL') ?: 'https://traefik.serdcebolit.ru',
 		'login' => getenv('TRAEFIK_LOGIN'),
 		'password' => getenv('TREFIK_PASSWORD'),
 	],

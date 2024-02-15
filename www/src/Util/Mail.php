@@ -1,9 +1,9 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Util;
+namespace Local\DockerSandboxManager\Util;
 
 use Exception;
-use Intervolga\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Application;
 use PHPMailer\PHPMailer\PHPMailer;
 
 class Mail {

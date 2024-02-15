@@ -1,6 +1,6 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\ShellCommands;
+namespace Local\DockerSandboxManager\ShellCommands;
 
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;

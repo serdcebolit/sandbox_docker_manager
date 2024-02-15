@@ -1,8 +1,8 @@
 <?php
 
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Util\Config;
-use Intervolga\DockerSandboxManager\Util\Mail;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Util\Config;
+use Local\DockerSandboxManager\Util\Mail;
 
 $_SERVER['DOCUMENT_ROOT'] = dirname(__FILE__, 2);
 

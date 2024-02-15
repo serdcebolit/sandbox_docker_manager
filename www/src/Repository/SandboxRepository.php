@@ -1,13 +1,13 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Repository;
+namespace Local\DockerSandboxManager\Repository;
 
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\DB\Connection;
-use Intervolga\DockerSandboxManager\Entity\QueueCommand\IQueueCommand;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\SandboxCollection;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\DockerSandbox;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\ISandbox;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\DB\Connection;
+use Local\DockerSandboxManager\Entity\QueueCommand\IQueueCommand;
+use Local\DockerSandboxManager\Entity\Sandbox\SandboxCollection;
+use Local\DockerSandboxManager\Entity\Sandbox\DockerSandbox;
+use Local\DockerSandboxManager\Entity\Sandbox\ISandbox;
 
 class SandboxRepository {
 

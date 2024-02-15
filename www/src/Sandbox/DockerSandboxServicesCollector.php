@@ -1,10 +1,10 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Sandbox;
+namespace Local\DockerSandboxManager\Sandbox;
 
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\ISandbox;
-use Intervolga\DockerSandboxManager\Util\Config;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Entity\Sandbox\ISandbox;
+use Local\DockerSandboxManager\Util\Config;
 use Symfony\Component\Cache\Adapter\AdapterInterface;
 use Symfony\Contracts\Cache\ItemInterface;
 

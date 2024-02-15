@@ -1,8 +1,8 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Sandbox;
+namespace Local\DockerSandboxManager\Sandbox;
 
-use Intervolga\DockerSandboxManager\Util\DockerComposeProject;
+use Local\DockerSandboxManager\Util\DockerComposeProject;
 
 class Authorization
 {

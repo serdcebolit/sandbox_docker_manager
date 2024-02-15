@@ -1,7 +1,7 @@
 <?php
 
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\ISandbox;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Entity\Sandbox\ISandbox;
 
 $_SERVER['DOCUMENT_ROOT'] = dirname(__FILE__, 2);
 

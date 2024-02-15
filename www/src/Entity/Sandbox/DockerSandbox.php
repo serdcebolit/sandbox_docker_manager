@@ -1,11 +1,11 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Entity\Sandbox;
+namespace Local\DockerSandboxManager\Entity\Sandbox;
 
 use DateTime;
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Util\Config;
-use Intervolga\DockerSandboxManager\Util\DockerComposeProject;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Util\Config;
+use Local\DockerSandboxManager\Util\DockerComposeProject;
 use Throwable;
 
 class DockerSandbox implements ISandbox {

@@ -1,8 +1,8 @@
 <?php
 
-use Intervolga\DockerSandboxManager\Sandbox\Authorization;
-use Intervolga\DockerSandboxManager\Settings\SandboxSettingsManager;
-use Intervolga\DockerSandboxManager\Util\DockerComposeProject;
+use Local\DockerSandboxManager\Sandbox\Authorization;
+use Local\DockerSandboxManager\Settings\SandboxSettingsManager;
+use Local\DockerSandboxManager\Util\DockerComposeProject;
 require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 $title = 'Настройки песочницы ' . $_REQUEST['domain'];
 if (!isset($_GET['domain']) || !mb_strlen($_GET['domain'])) {

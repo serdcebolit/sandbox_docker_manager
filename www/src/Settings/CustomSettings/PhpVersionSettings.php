@@ -1,13 +1,13 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Settings\CustomSettings;
+namespace Local\DockerSandboxManager\Settings\CustomSettings;
 
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\DockerSandbox;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\ISandbox;
-use Intervolga\DockerSandboxManager\Repository\SandboxRepository;
-use Intervolga\DockerSandboxManager\Settings\Settings;
-use Intervolga\DockerSandboxManager\Util\DockerComposeProject;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Entity\Sandbox\DockerSandbox;
+use Local\DockerSandboxManager\Entity\Sandbox\ISandbox;
+use Local\DockerSandboxManager\Repository\SandboxRepository;
+use Local\DockerSandboxManager\Settings\Settings;
+use Local\DockerSandboxManager\Util\DockerComposeProject;
 use Throwable;
 
 class PhpVersionSettings extends Settings {

@@ -1,16 +1,16 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager;
+namespace Local\DockerSandboxManager;
 
-use Intervolga\DockerSandboxManager\DB\Connection;
-use Intervolga\DockerSandboxManager\Repository\QueueCommandRepository;
-use Intervolga\DockerSandboxManager\Repository\SandboxRepository;
-use Intervolga\DockerSandboxManager\Sandbox\DockerSandboxServicesCollector;
-use Intervolga\DockerSandboxManager\Sandbox\ISandboxServicesCollector;
-use Intervolga\DockerSandboxManager\Util\Config;
-use Intervolga\DockerSandboxManager\Util\DockerStatsProvider;
-use Intervolga\DockerSandboxManager\Util\SandboxLock;
-use Intervolga\DockerSandboxManager\Util\TraefikApi;
+use Local\DockerSandboxManager\DB\Connection;
+use Local\DockerSandboxManager\Repository\QueueCommandRepository;
+use Local\DockerSandboxManager\Repository\SandboxRepository;
+use Local\DockerSandboxManager\Sandbox\DockerSandboxServicesCollector;
+use Local\DockerSandboxManager\Sandbox\ISandboxServicesCollector;
+use Local\DockerSandboxManager\Util\Config;
+use Local\DockerSandboxManager\Util\DockerStatsProvider;
+use Local\DockerSandboxManager\Util\SandboxLock;
+use Local\DockerSandboxManager\Util\TraefikApi;
 use Monolog\Registry;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -22,7 +22,7 @@ class Application {
 	const COMMANDS_LOGGER_NAME = 'commands_logger';
 	const SANDBOX_SLEEP_CHECK_LOGGER_NAME = 'sandbox_sleep_check_logger';
 	const MAIN_LOGGER_NAME = 'main_logger';
-	const CACHE_ROOT_KEY = 'ivdev_sandbox_manager';
+	const CACHE_ROOT_KEY = 'docker_sandbox_manager';
 
 	protected static ?ArrayAdapter $inMemoryCacheInstance = null;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Entity\QueueCommand;
+namespace Local\DockerSandboxManager\Entity\QueueCommand;
 
-use Intervolga\DockerSandboxManager\Entity\Sandbox\ISandbox;
+use Local\DockerSandboxManager\Entity\Sandbox\ISandbox;
 
 interface IQueueCommand {
 	const STATUS_NEW = 'NEW';

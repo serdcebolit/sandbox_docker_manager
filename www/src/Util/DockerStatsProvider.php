@@ -1,12 +1,12 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Util;
+namespace Local\DockerSandboxManager\Util;
 
 use DateTime;
 use Exception;
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Exception\DockerNotAvailableException;
-use Intervolga\DockerSandboxManager\ShellCommands\ICommandsExecutor;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Exception\DockerNotAvailableException;
+use Local\DockerSandboxManager\ShellCommands\ICommandsExecutor;
 use Symfony\Component\Cache\Adapter\AbstractAdapter;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;

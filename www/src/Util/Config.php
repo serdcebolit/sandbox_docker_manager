@@ -1,6 +1,6 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Util;
+namespace Local\DockerSandboxManager\Util;
 
 class Config {
 	const MAIN_CONFIG_PATH = '/config/main.php';

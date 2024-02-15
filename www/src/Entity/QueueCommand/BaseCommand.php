@@ -1,10 +1,10 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Entity\QueueCommand;
+namespace Local\DockerSandboxManager\Entity\QueueCommand;
 
-use Intervolga\DockerSandboxManager\Application;
-use Intervolga\DockerSandboxManager\Entity\Sandbox\ISandbox;
-use Intervolga\DockerSandboxManager\Repository\QueueCommandRepository;
+use Local\DockerSandboxManager\Application;
+use Local\DockerSandboxManager\Entity\Sandbox\ISandbox;
+use Local\DockerSandboxManager\Repository\QueueCommandRepository;
 use Psr\Log\LoggerInterface;
 
 abstract class BaseCommand implements IQueueCommand {

@@ -13,7 +13,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 $title = '404';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/template/header.php';
 $siteHost = $_SERVER['HTTP_HOST'];
-$sandboxRepository = \Intervolga\DockerSandboxManager\Application::getSandboxRepository()->findByDomain($siteHost);
+$sandboxRepository = \Local\DockerSandboxManager\Application::getSandboxRepository()->findByDomain($siteHost);
 ?>
 
     <div class="row d-flex justify-content-center">

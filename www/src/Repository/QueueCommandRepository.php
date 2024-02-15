@@ -1,10 +1,10 @@
 <?php
 
-namespace Intervolga\DockerSandboxManager\Repository;
+namespace Local\DockerSandboxManager\Repository;
 
-use Intervolga\DockerSandboxManager\DB\Connection;
-use Intervolga\DockerSandboxManager\Entity\QueueCommand\CommandFactory;
-use Intervolga\DockerSandboxManager\Entity\QueueCommand\IQueueCommand;
+use Local\DockerSandboxManager\DB\Connection;
+use Local\DockerSandboxManager\Entity\QueueCommand\CommandFactory;
+use Local\DockerSandboxManager\Entity\QueueCommand\IQueueCommand;
 
 class QueueCommandRepository {
 
