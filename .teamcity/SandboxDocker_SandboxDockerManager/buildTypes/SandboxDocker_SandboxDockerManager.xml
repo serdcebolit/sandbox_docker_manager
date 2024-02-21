@@ -5,6 +5,7 @@
   <settings>
     <parameters>
       <param name="SKIP_BUILD" value="false" spec="checkbox label='|0x041f|0x0440|0x043e|0x043f|0x0443|0x0441|0x0442|0x0438|0x0442|0x044c |0x0431|0x0438|0x043b|0x0434 |0x043a|0x043e|0x043d|0x0442|0x0435|0x0439|0x043d|0x0435|0x0440|0x043e|0x0432' uncheckedValue='false' display='prompt' checkedValue='true'" />
+      <param name="env.COMPOSE_DOCKER_CLI_BUILD" value="1" />
       <param name="env.DEPLOY_ENV_PATH" value="/home/web/sandbox_docker_manager" />
       <param name="env.SSH_MAIN_USER" value="credentialsJSON:863cc47f-549d-4b5f-bc3c-3aa376c2d690" spec="password display='hidden'" />
       <param name="env.docker-login" value="credentialsJSON:29b96e4a-727b-4e5d-b564-675a0ddf5747" spec="password display='hidden'" />
