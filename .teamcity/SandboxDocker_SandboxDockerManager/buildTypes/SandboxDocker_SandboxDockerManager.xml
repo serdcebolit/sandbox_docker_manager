@@ -12,13 +12,13 @@
     </parameters>
     <build-runners>
       <runner id="Github_Registry_Packages" name="Сборка и пуш образов в Github Registry Packages" type="simpleRunner">
+        <conditions>
+          <does-not-equal name="SKIP_BUILD" value="true" />
+        </conditions>
         <parameters>
-          <param name="script.content"><![CDATA[if [ "%SKIP_BUILD%" != "true" ]; then
-    export COMPOSE_DOCKER_CLI_BUILD=1
-    docker-compose -f docker-compose.build.yml build --no-cache --parallel
-    docker login -u %env.docker-login% -p %env.docker-pass% ghcr.io
-    docker-compose -f docker-compose.build.yml push
-fi]]></param>
+          <param name="script.content"><![CDATA[docker-compose -f docker-compose.build.yml build --no-cache --parallel
+docker login -u %env.docker-login% -p %env.docker-pass% ghcr.io
+docker-compose -f docker-compose.build.yml push]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
