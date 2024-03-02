@@ -10,7 +10,6 @@ use Throwable;
 
 class DockerComposeProject {
 
-	const SANDBOXES_ROOT_DIR = '/home/bitrix/ext_www';
 	const SANDBOX_DOCKER_ENV_PATH = '/home/bitrix/sandbox_docker_env';
 	const CONTAINER_STATUSES_WORKING = ['restarting', 'running'];
 	const CONTAINER_STATUSES_NOT_WORKING = ['created', 'removing', 'paused', 'exited', 'dead'];
@@ -57,9 +56,10 @@ class DockerComposeProject {
 		private string $domain,
 		private array $composeFiles = ['docker-compose.yml'],
 	) {
-		$this->projectDir = static::SANDBOXES_ROOT_DIR.'/'.$this->domain;
-
 		$this->mainConfig = Config::getMainConfig();
+
+		$this->projectDir = $this->mainConfig['sandboxes_root_path'] . '/'.$this->domain;
+
 		if ($this->mainConfig['containers_env'] == 'local' && !in_array(static::LOCAL_DOCKER_COMPOSE_FILE_NAME, $this->composeFiles)) {
 			$this->composeFiles[] = static::LOCAL_DOCKER_COMPOSE_FILE_NAME;
 		}
