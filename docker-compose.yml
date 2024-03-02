@@ -15,7 +15,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.nginx-sandboxmanager.rule=Host(`${SITE_HOST}`)"
-      - "traefik.http.routers.nginx-sandboxmanager.middlewares=https-only"
+      - "traefik.http.routers.nginx-sandboxmanager.middlewares=https-only,auth"
       - "traefik.http.routers.nginx-sandboxmanager.entrypoints=websecure"
       - "traefik.http.routers.nginx-sandboxmanager.tls=true"
       - "traefik.http.routers.nginx-sandboxmanager.tls.certresolver=mainresolver"
