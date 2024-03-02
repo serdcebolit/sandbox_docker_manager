@@ -68,7 +68,7 @@ class Application {
 	}
 
 	public static function getMailer(): PHPMailer {
-		$mailer = new PHPMailer(true);
+		$mailer = new PHPMailer(false);
 
 		$config = Config::getMainConfig()['mail'];
 

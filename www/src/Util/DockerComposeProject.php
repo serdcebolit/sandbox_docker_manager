@@ -11,6 +11,7 @@ use Throwable;
 class DockerComposeProject {
 
 	const SANDBOXES_ROOT_DIR = '/home/bitrix/ext_www';
+	const SANDBOX_DOCKER_ENV_PATH = '/home/bitrix/sandbox_docker_env';
 	const CONTAINER_STATUSES_WORKING = ['restarting', 'running'];
 	const CONTAINER_STATUSES_NOT_WORKING = ['created', 'removing', 'paused', 'exited', 'dead'];
 	const LOCAL_DOCKER_COMPOSE_FILE_NAME = 'docker-compose.local.yml';
@@ -97,15 +98,14 @@ class DockerComposeProject {
 			$isExists = false;
 		}
 		$isExists && throw new Exception('Проект уже существует');
-		$stubDir = $_SERVER['DOCUMENT_ROOT'].'/project_stub';
 
-		shell_exec(sprintf('cp -a %s %s', $stubDir, $this->projectDir));
+		shell_exec(sprintf('cp -a %s %s', static::SANDBOX_DOCKER_ENV_PATH, $this->projectDir));
 
 		!mb_strlen($sshPassword) && throw new Exception('Не указан пароль для ssh');
 
 		$mainConfig = Config::getMainConfig();
 
-		$configExample = $this->getEnvConfig($this->projectDir.'/.env.example');
+		$configExample = $this->getEnvConfig($this->projectDir.'/.env');
 		$configExample['SITE_HOST'] = str_replace('.'.$this->mainConfig['main_domain'], '', $this->domain);
 		$configExample['OWNER_EMAIL'] = $sandbox->getOwner();
 		$configExample['PHP_VERSION'] = $phpVersion;
@@ -158,7 +158,7 @@ class DockerComposeProject {
 		!file_put_contents(
 			$path,
 			implode(PHP_EOL, array_map(
-				static fn ($key, $val) => "${key}=${val}",
+				static fn ($key, $val) => mb_strlen(trim($key)) ? "$key=$val" : '',
 				array_keys($config), $config)
 			)
 		)
