@@ -10,7 +10,7 @@ return [
 	],
 	'containers_env' => getenv('CONTAINERS_ENV') ?: 'prod',
 	'sandbox_active_days_period' => 7,
-	'ip_addresses_for_access_logs' => ['88.87.88.238'],
+	'ip_addresses_for_access_logs' => [''],
 	'main_domain' => getenv('MAIN_DOMAIN') ?: 'serdcebolit.ru',
 	'logs_dir' => $_SERVER['DOCUMENT_ROOT'].'/log',
 	'mail' => [

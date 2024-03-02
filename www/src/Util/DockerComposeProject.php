@@ -44,6 +44,12 @@ class DockerComposeProject {
 
 	const DEFAULT_BX_INSTALL_REDACTION = 'standard';
 
+	const FILES_TO_COPY = [
+		'docker-compose.yml',
+		'.env',
+		'sandbox',
+	];
+
 	private ?string $projectDir;
 	private array $mainConfig = [];
 
@@ -99,7 +105,17 @@ class DockerComposeProject {
 		}
 		$isExists && throw new Exception('Проект уже существует');
 
-		shell_exec(sprintf('cp -a %s %s', static::SANDBOX_DOCKER_ENV_PATH, $this->projectDir));
+		$command = Application::getCommandExecutor();
+
+		foreach (static::FILES_TO_COPY as $file)
+		{
+			if (!file_exists($this->projectDir))
+			{
+				$command->execute(['mkdir', $this->projectDir]);
+			}
+
+			$command->execute(['cp', static::SANDBOX_DOCKER_ENV_PATH . '/' . $file, $this->projectDir . '/']);
+		}
 
 		!mb_strlen($sshPassword) && throw new Exception('Не указан пароль для ssh');
 

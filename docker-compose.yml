@@ -51,7 +51,7 @@ services:
       - ./www:/home/bitrix/www
       - ${SSHPIPER_VOLUME}:/home/bitrix/sshpiper
       - "${SANDBOXES_ROOT_PATH}:/home/bitrix/ext_www"
-      - "${SANDBOX_DOCKER_ENV_PATH}:/home/bitrix/sandboxes_docker_env:ro"
+      - "${SANDBOX_DOCKER_ENV_PATH}:/home/bitrix/sandbox_docker_env:ro"
       - ./httpd/crontab.cfg:/root/crontab.cfg
       - backend_cron:/var/spool/cron
     environment:
