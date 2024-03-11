@@ -14,11 +14,12 @@ return [
 	'main_domain' => getenv('MAIN_DOMAIN') ?: 'serdcebolit.ru',
 	'logs_dir' => $_SERVER['DOCUMENT_ROOT'].'/log',
 	'mail' => [
-		'host' => getenv('SMTP_HOST'),
-		'login' => getenv('SMTP_LOGIN'),
-		'password' => getenv('SMTP_PASSWORD'),
+		'host' => getenv('SMTP_HOST') ?: 'mail',
+		'login' => getenv('SMTP_LOGIN') ?: 'serdcebolit@serdcebolit.ru',
+		'password' => getenv('SMTP_PASSWORD') ?: 'password',
 		'port' => getenv('SMTP_PORT') ?: 25,
-		'from_name' => getenv('SMTP_FROM_NAME') ?: 'serdcebolit',
+		'from_name' => getenv('SMTP_FROM_NAME') ?: 'serdcebolit@serdcebolit.ru',
+		'smtp_auth' => getenv('SMTP_AUTH') == 'true',
 		'bcc_emails' => ['d97510795@gmail.com']
 	],
 	'traefik' => [

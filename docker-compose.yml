@@ -110,30 +110,35 @@ services:
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_ROOT_PASSWORD=SuperSecretRootPASSWORD
 
-#  mail:
-#    container_name: sandbox_manager_mail
-#    image: mailhog/mailhog:v1.0.1
-#    restart: on-failure
-#    depends_on:
-#      deploy_manager:
-#        condition: service_healthy
-#    networks:
-#      - main_proxy_sandbox_network
-#      - default
-#    labels:
-#      - "traefik.enable=true"
-#      - "traefik.http.routers.mail-sandboxmanager.rule=Host(`mail.sandbox.${SITE_HOST}`)"
-#      - "traefik.http.routers.mail-sandboxmanager.entrypoints=websecure"
-#      - "traefik.http.routers.mail-sandboxmanager.middlewares=auth"
-#      - "traefik.http.routers.mail-sandboxmanager.tls=true"
-#      - "traefik.http.routers.mail-sandboxmanager.tls.certresolver=mainresolver"
-#      - "traefik.http.services.mail-sandboxmanager.loadbalancer.server.port=8025"
+  mail:
+    container_name: sandbox_manager_mail
+    image: axllent/mailpit
+    restart: on-failure
+    networks:
+      - main_proxy_sandbox_network
+      - local_network
+    volumes:
+      - mail_data:/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mail-sandboxmanager.rule=Host(`mail.${SITE_HOST}`)"
+      - "traefik.http.routers.mail-sandboxmanager.entrypoints=websecure"
+      - "traefik.http.routers.mail-sandboxmanager.middlewares=auth"
+      - "traefik.http.routers.mail-sandboxmanager.tls=true"
+      - "traefik.http.routers.mail-sandboxmanager.tls.certresolver=mainresolver"
+      - "traefik.http.services.mail-sandboxmanager.loadbalancer.server.port=8025"
+    environment:
+      MP_MAX_MESSAGES: 5000
+      MP_DATA_FILE: /data/mailpit.db
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
 
 volumes:
   backend_cron:
   mysql_data:
   main_proxy_sshpiper_config:
     external: true
+  mail_data:
 
 networks:
   local_network:

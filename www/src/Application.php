@@ -68,16 +68,19 @@ class Application {
 	}
 
 	public static function getMailer(): PHPMailer {
-		$mailer = new PHPMailer(false);
+		$mailer = new PHPMailer(true);
 
 		$config = Config::getMainConfig()['mail'];
 
 		$mailer->isSMTP();
 		$mailer->Host = $config['host'];
-		$mailer->SMTPAuth = true;
-		$mailer->Username = $config['login'];
-		$mailer->Password = $config['password'];
-		$mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+		$mailer->SMTPAuth = $config['smtp_auth'];
+		
+		if ($config['smtp_auth']) {
+			$mailer->Username = $config['login'];
+			$mailer->Password = $config['password'];
+			$mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+		}
 		$mailer->Port = $config['port'];
 		$mailer->CharSet = 'UTF-8';
 
